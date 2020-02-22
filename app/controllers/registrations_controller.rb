@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
         @payment = Payment.new({email: params["user"]["email"],
           token: params[:payment]["token"], user_id: resource.id })
 
-        flash[:error] = "Pkease check registration errors" unless @payment.valid?
+        flash[:error] = "Please check registration errors" unless @payment.valid?
 
         begin
           @payment.process_payment
